@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="display"></div>
+    <button onclick="function nextBook()">BookName</button>
+    <button id="">RefreshPage</button>
+    <button id="">closePage</button>
+    <script>
+        let index= 0
+       let books= [
+            { "name": "HarryPotter", "author": "JoanneRowling" },
+            { "name": "TheRunningDream", "author": "WendelinVanDraanen" },
+            { "name": "TheSiren", "author": "KieraCass" },
+        ]
+        function nextBook(){
+        display.innerHTML += books[index].name 
+        display.innerHTML += books[index].author 
+        index++
+        if(index > books.length) {
+            index=0
+        }
+    }
+        nextBook()
+    </script>
+</body>
+</html>

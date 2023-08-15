@@ -1,0 +1,26 @@
+{
+    "students": [
+        {
+            "name": "waga",
+            "age": 17
+        },
+        {
+            "name": "baga",
+            "age": 5
+        },
+        {
+            "name": "gaga",
+            "age": 7
+        }
+        ,
+        {
+            "name": "aaaa",
+            "age": 7
+        }
+        ,
+        {
+            "name": "bbbbbbbbb",
+            "age": 7
+        }
+    ]
+}

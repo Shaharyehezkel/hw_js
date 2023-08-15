@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="display"></div>
+    <button onclick="firstStudents()">first</button>
+    <button onclick="nextStudents()">next</button>
+    <button onclick="prevStudents()">perv</button>
+    <button onclick="lastStudents()">last</button>
+    <button onclick="deleteStudents()">delete</button>
+    <hr>
+    <input type="text" id="studentName" placeholder="Name">
+    <input type="number" id="studentAge" placeholder="Age">
+    <button onclick="addStudent()">Add Student</button>
+    <script>
+        let index = 0
+        let students = [
+            { "name": "yacov", "age": 20 },
+            { "name": "ana", "age": 15 },
+            { "name": "rony", "age": 7 },
+
+        ]
+        function updateDisplay() {
+            if (students.length > 0) {
+                display.innerHTML = students[index % students.length].name
+                display.innerHTML += students[index++ % students.length].age
+            } else {
+                display.innerHTML = "no user found"
+            }
+        }
+        function nextStudents() {
+            index++
+            updateDisplay()
+        }
+        function prevStudents() {
+            if (index > 0)
+                index--
+        }
+        function firstStudents() {
+            index = 0
+            updateDisplay()
+        }
+        function lastStudents() {
+            index = students.length - 1
+            updateDisplay()
+        }
+        updateDisplay()
+
+        function deleteStudents() {
+            // Check if there's a student to delete before the current index
+            if (index > 0) {
+                students.splice(index, 1);
+                // Adjust index after deletion
+                index--;
+                updateDisplay();
+            }
+        }
+        function addStudent() {
+            const name = document.getElementById('studentName').value;
+            const age = parseInt(document.getElementById('studentAge').value);
+
+            // Check if the user actually input values before adding to students array
+            if (name && age) {
+                students.push({ name, age });
+                updateDisplay();
+            } else {
+                alert('Please enter both name and age.');
+            }
+        }
+
+        // Initial display
+        updateDisplay();
+
+
+    </script>
+</body>
+
+</html>
